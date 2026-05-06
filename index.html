@@ -3,622 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Time Audit — Time Savvy Systems™</title>
+<title>The 10-Hour Buyback Audit™ — Time-Savvy Systems™</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --plum:       #25102a;
-    --plum-mid:   #3d1832;
-    --plum-dark:  #1d0d22;
-    --plum-card:  #2a1230;
-    --spot-dark:  #2a1426;
-    --gold:       #c9933a;
-    --gold-light: #e8c07a;
-    --gold-pale:  #f0d898;
-    --white:      #ffffff;
-    --white-65:   rgba(255,255,255,0.65);
-    --white-40:   rgba(255,255,255,0.4);
-    --white-20:   rgba(255,255,255,0.2);
-    --gold-line:  rgba(201,147,58,0.3);
-    --gold-fill:  rgba(201,147,58,0.08);
+    --plum: #25102a; --plum-mid: #3d1832; --plum-dark: #1d0d22; --plum-card: #2a1230;
+    --gold: #c9933a; --gold-light: #e8c07a; --gold-pale: #f0d898;
+    --fuchsia: #D4006A; --fuchsia-light: #FF6BAE;
+    --green: #5FD88A;
+    --white: #ffffff; --white-65: rgba(255,255,255,0.65); --white-40: rgba(255,255,255,0.4);
+    --gold-line: rgba(201,147,58,0.3); --gold-fill: rgba(201,147,58,0.08);
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--plum);
-    color: var(--white);
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  /* ── LEOPARD TEXTURE ── */
+  body { font-family: 'DM Sans', sans-serif; background: var(--plum); color: var(--white); min-height: 100vh; position: relative; overflow-x: hidden; }
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image:
       radial-gradient(ellipse 28px 22px at 55px 45px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 34px 28px at 55px 45px, #3d1832 55%, transparent 56%),
       radial-gradient(ellipse 10px 15px at 38px 33px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 10px 15px at 74px 33px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 10px 12px at 40px 60px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 10px 12px at 72px 60px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 22px 17px at 160px 90px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 28px 22px at 160px 90px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 8px 12px at 145px 78px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 8px 12px at 177px 78px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 8px 10px at 147px 104px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 8px 10px at 175px 104px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 26px 20px at 280px 45px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 32px 26px at 280px 45px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 9px 14px at 263px 32px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 9px 14px at 298px 32px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 24px 19px at 100px 165px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 30px 24px at 100px 165px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 9px 13px at 84px 153px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 9px 13px at 118px 153px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 28px 22px at 230px 135px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 34px 28px at 230px 135px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 10px 15px at 213px 122px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 10px 15px at 249px 122px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 20px 16px at 360px 175px, #2a1426 55%, transparent 56%),
-      radial-gradient(ellipse 26px 20px at 360px 175px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 8px 11px at 345px 163px, #2a1426 60%, transparent 61%),
-      radial-gradient(ellipse 8px 11px at 376px 163px, #2a1426 60%, transparent 61%),
       radial-gradient(ellipse 26px 20px at 50px 255px, #2a1426 55%, transparent 56%),
       radial-gradient(ellipse 32px 26px at 50px 255px, #3d1832 55%, transparent 56%),
       radial-gradient(ellipse 24px 19px at 190px 245px, #2a1426 55%, transparent 56%),
-      radial-gradient(ellipse 30px 24px at 190px 245px, #3d1832 55%, transparent 56%),
-      radial-gradient(ellipse 28px 22px at 330px 265px, #2a1426 55%, transparent 56%),
-      radial-gradient(ellipse 34px 28px at 330px 265px, #3d1832 55%, transparent 56%);
-    background-size: 400px 300px;
-    opacity: 0.55;
+      radial-gradient(ellipse 30px 24px at 190px 245px, #3d1832 55%, transparent 56%);
+    background-size: 400px 300px; opacity: 0.55;
   }
+  .page { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 20px 60px; }
 
-  /* ── WRAPPER ── */
-  .page {
-    position: relative;
-    z-index: 1;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
-
-  /* ── HEADER ── */
-  .header {
-    background: linear-gradient(135deg, #3a1840 0%, #2a1030 100%);
-    margin: 0 -20px;
-    padding: 36px 40px 32px;
-    border-bottom: 2px solid var(--gold);
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(201,147,58,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .header-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .clock-icon {
-    flex-shrink: 0;
-    width: 52px; height: 52px;
-  }
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #3a1840 0%, #2a1030 100%); margin: 0 -20px; padding: 36px 40px 32px; border-bottom: 2px solid var(--gold); position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -30px; right: -30px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,147,58,0.12) 0%, transparent 70%); pointer-events: none; }
+  .header-top { display: flex; align-items: flex-start; gap: 20px; }
+  .clock-icon { flex-shrink: 0; width: 52px; height: 52px; }
   .header-text { flex: 1; }
-  .header-eyebrow {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .header-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 6px;
-  }
+  .header-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .header-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 40px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 6px; }
   .header-title span { color: var(--gold); font-style: italic; }
-  .header-sub {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(14px, 2vw, 17px);
-    font-style: italic;
-    color: var(--gold-light);
-    margin-bottom: 12px;
-  }
-  .header-desc {
-    font-size: 13px;
-    color: var(--white-65);
-    line-height: 1.6;
-    max-width: 520px;
-  }
-  .header-brand {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(201,147,58,0.2);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .header-brand-name {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gold);
-  }
-  .header-brand-tag {
-    font-size: 11px;
-    color: var(--white-40);
-  }
-  .header-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(201,147,58,0.12);
-    border: 1px solid rgba(201,147,58,0.3);
-    border-radius: 100px;
-    padding: 5px 14px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 0.05em;
-    margin-left: auto;
-  }
+  .header-sub { font-family: 'DM Serif Display', serif; font-size: clamp(14px, 2vw, 17px); font-style: italic; color: var(--gold-light); margin-bottom: 12px; }
+  .header-desc { font-size: 13px; color: var(--white-65); line-height: 1.6; max-width: 520px; }
+  .header-brand { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(201,147,58,0.2); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .header-brand-name { font-size: 12px; font-weight: 600; color: var(--gold); }
+  .header-brand-tag { font-size: 11px; color: var(--white-40); }
+  .header-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,0,106,0.15); border: 1px solid rgba(212,0,106,0.35); border-radius: 100px; padding: 5px 14px; font-size: 11px; font-weight: 600; color: var(--fuchsia-light); letter-spacing: 0.05em; margin-left: auto; }
 
-  /* ── PROGRESS BAR ── */
-  .progress-wrap {
-    background: rgba(255,255,255,0.05);
-    border-bottom: 1px solid var(--gold-line);
-    padding: 12px 40px;
-    margin: 0 -20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .progress-label { font-size: 11px; color: var(--white-40); white-space: nowrap; }
-  .progress-bar-track {
-    flex: 1;
-    height: 4px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    border-radius: 100px;
-    transition: width 0.4s ease;
-    width: 0%;
-  }
-  .progress-pct { font-size: 11px; color: var(--gold); font-weight: 600; min-width: 32px; }
+  /* LAST AUDIT BANNER */
+  .last-audit-banner { background: rgba(95,216,138,0.07); border: 1px solid rgba(95,216,138,0.25); border-radius: 8px; padding: 14px 20px; margin-top: 20px; display: none; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .last-audit-banner.show { display: flex; }
+  .last-audit-text { font-size: 13px; color: var(--green); line-height: 1.5; }
+  .last-audit-text strong { color: var(--white); }
+  .last-audit-btn { padding: 7px 16px; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid rgba(95,216,138,0.3); background: transparent; color: var(--green); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .last-audit-btn:hover { background: rgba(95,216,138,0.1); }
 
-  /* ── SECTIONS ── */
-  .section {
-    margin-top: 40px;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .section.visible { opacity: 1; transform: translateY(0); }
-
-  .section-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--gold-line);
-  }
-  .section-num {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #1a0800;
-    margin-top: 2px;
-  }
-  .section-titles { flex: 1; }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 3vw, 24px);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-  .section-subtitle {
-    font-size: 13px;
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  /* ── BUCKET CARDS ── */
-  .buckets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  @media(max-width:560px){ .buckets { grid-template-columns: 1fr; } }
-
-  .bucket-card {
-    background: var(--plum-card);
-    border: 1px solid var(--gold-line);
-    border-top: 3px solid var(--gold);
-    border-radius: 6px;
-    padding: 16px;
-  }
-  .bucket-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.15s;
-    padding: 6px 8px;
-    margin: 0 -8px;
-  }
-  .check-item:hover { background: rgba(201,147,58,0.06); }
-  .check-item input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 16px; height: 16px;
-    border: 1.5px solid rgba(201,147,58,0.5);
-    border-radius: 3px;
-    background: var(--plum-dark);
-    cursor: pointer;
-    flex-shrink: 0;
-    position: relative;
-    transition: all 0.15s;
-  }
-  .check-item input[type="checkbox"]:checked {
-    background: var(--gold);
-    border-color: var(--gold);
-  }
-  .check-item input[type="checkbox"]:checked::after {
-    content: '✓';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    color: #1a0800;
-    font-size: 10px;
-    font-weight: 700;
-  }
-  .check-label {
-    font-size: 13px;
-    color: var(--white-65);
-    line-height: 1.4;
-    cursor: pointer;
-  }
-  .check-item:has(input:checked) .check-label {
-    color: var(--white);
-  }
-
-  /* ── FORM FIELDS ── */
-  .field-group { margin-bottom: 20px; }
-  .field-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gold-light);
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-  .field-label .required { color: var(--gold); margin-left: 2px; }
-
-  textarea, input[type="text"] {
-    width: 100%;
-    background: var(--plum-card);
-    border: 1px solid var(--gold-line);
-    border-radius: 6px;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 12px 16px;
-    resize: vertical;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-  textarea:focus, input[type="text"]:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201,147,58,0.12);
-  }
-  textarea::placeholder, input::placeholder { color: rgba(255,255,255,0.25); }
-
-  /* ── MANUAL WORK AUDIT ── */
-  .manual-list { display: flex; flex-direction: column; gap: 2px; }
-  .manual-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 16px;
-    background: var(--plum-card);
-    border: 1px solid var(--gold-line);
-    border-radius: 6px;
-    transition: background 0.2s;
-  }
-  .manual-item:hover { background: rgba(201,147,58,0.05); }
-  .manual-item.checked { background: rgba(201,147,58,0.08); border-color: rgba(201,147,58,0.4); }
-  .manual-task { font-size: 14px; color: var(--white-65); }
-  .manual-item.checked .manual-task { color: var(--white); }
-  .ai-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #1a0800;
-    background: var(--gold);
-    padding: 4px 10px;
-    border-radius: 100px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .manual-item.checked .ai-badge { opacity: 1; }
-  .manual-item-inner { display: flex; align-items: center; gap: 12px; }
-
-  /* ── RADIO GROUPS ── */
-  .radio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 8px;
-  }
-  .radio-option {
-    position: relative;
-    cursor: pointer;
-  }
-  .radio-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
-  .radio-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    background: var(--plum-card);
-    border: 1px solid var(--gold-line);
-    border-radius: 6px;
-    font-size: 13px;
-    color: var(--white-65);
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.15s;
-    line-height: 1.3;
-  }
-  .radio-option input:checked + .radio-label {
-    background: rgba(201,147,58,0.15);
-    border-color: var(--gold);
-    color: var(--white);
-  }
-
-  /* ── INTENTION BLOCK ── */
-  .intention-card {
-    background: linear-gradient(135deg, rgba(201,147,58,0.08) 0%, rgba(13,6,8,0) 60%);
-    border: 1px solid rgba(201,147,58,0.35);
-    border-top: 3px solid var(--gold);
-    border-radius: 6px;
-    padding: 28px;
-  }
-  .intention-prompt {
-    font-family: 'DM Serif Display', serif;
-    font-size: 16px;
-    font-style: italic;
-    color: var(--gold-light);
-    margin-bottom: 10px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 60px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 32px auto;
-  }
-
-  /* ── SUBMIT / PRINT BUTTONS ── */
-  .actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 1px solid var(--gold-line);
-  }
-  .btn-primary {
-    flex: 1;
-    min-width: 200px;
-    padding: 18px 32px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-    color: #1a0800;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    letter-spacing: 0.02em;
-    box-shadow: 0 8px 32px rgba(201,147,58,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,147,58,0.45); }
-  .btn-secondary {
-    padding: 18px 28px;
-    background: transparent;
-    color: var(--gold-light);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    border: 1px solid rgba(201,147,58,0.35);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .btn-secondary:hover { background: rgba(201,147,58,0.08); border-color: var(--gold); }
-
-  /* ── COMPLETION STATE ── */
-  .completion {
-    display: none;
-    text-align: center;
-    padding: 60px 24px;
-    background: linear-gradient(135deg, rgba(201,147,58,0.08), transparent);
-    border: 1px solid rgba(201,147,58,0.35);
-    border-radius: 8px;
-    margin-top: 40px;
-  }
-  .completion.show { display: block; animation: fadeup 0.6s ease; }
-  .completion-icon { font-size: 48px; margin-bottom: 16px; }
-  .completion h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-  .completion h2 span { color: var(--gold); font-style: italic; }
-  .completion p { font-size: 16px; color: var(--white-65); line-height: 1.7; max-width: 480px; margin: 0 auto 24px; }
-  .completion-date { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-light); font-size: 18px; }
-
-  /* ── FOOTER ── */
-  .footer {
-    margin: 60px -20px 0;
-    background: #1d0d22;
-    border-top: 1px solid var(--gold-line);
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .footer-brand { font-size: 12px; font-weight: 700; color: var(--gold); }
-  .footer-copy { font-size: 11px; color: var(--white-40); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeup {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── SAVE INDICATOR ── */
-  .save-indicator {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: var(--plum-card);
-    border: 1px solid var(--gold-line);
-    border-radius: 100px;
-    padding: 10px 18px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--white-40);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 100;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  .save-indicator.saving {
-    opacity: 1;
-    transform: translateY(0);
-    color: var(--gold-light);
-    border-color: rgba(201,147,58,0.4);
-  }
-  .save-indicator.saved {
-    opacity: 1;
-    transform: translateY(0);
-    color: #6fcf97;
-    border-color: rgba(111,207,151,0.3);
-  }
-  .save-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-  }
-
-  /* ── RESTORE BANNER ── */
-  .restore-banner {
-    background: rgba(201,147,58,0.1);
-    border: 1px solid rgba(201,147,58,0.3);
-    border-radius: 6px;
-    padding: 14px 20px;
-    margin-top: 20px;
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  /* RESTORE BANNER */
+  .restore-banner { background: rgba(201,147,58,0.1); border: 1px solid rgba(201,147,58,0.3); border-radius: 6px; padding: 14px 20px; margin-top: 12px; display: none; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .restore-banner.show { display: flex; }
   .restore-text { font-size: 13px; color: var(--gold-light); }
   .restore-text strong { color: var(--white); }
   .restore-btns { display: flex; gap: 8px; }
-  .restore-btn {
-    padding: 7px 16px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .restore-btn { padding: 7px 16px; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; }
   .restore-btn.yes { background: var(--gold); color: #1a0800; }
   .restore-btn.no { background: transparent; color: var(--white-40); border: 1px solid var(--gold-line); }
 
-  /* ── PRINT STYLES ── */
+  /* PROGRESS */
+  .progress-wrap { background: rgba(255,255,255,0.05); border-bottom: 1px solid var(--gold-line); padding: 12px 40px; margin: 0 -20px; display: flex; align-items: center; gap: 12px; }
+  .progress-label { font-size: 11px; color: var(--white-40); white-space: nowrap; }
+  .progress-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 100px; transition: width 0.4s ease; width: 0%; }
+  .progress-pct { font-size: 11px; color: var(--gold); font-weight: 600; min-width: 32px; }
+
+  /* SECTIONS */
+  .section { margin-top: 40px; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .section.visible { opacity: 1; transform: translateY(0); }
+  .section-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--gold-line); }
+  .section-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #1a0800; margin-top: 2px; }
+  .section-titles { flex: 1; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 24px); font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .section-subtitle { font-size: 13px; font-style: italic; color: var(--gold-light); }
+
+  /* BUCKETS */
+  .buckets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  @media(max-width:560px){ .buckets { grid-template-columns: 1fr; } }
+  .bucket-card { background: var(--plum-card); border: 1px solid var(--gold-line); border-top: 3px solid var(--gold); border-radius: 6px; padding: 16px; }
+  .bucket-title { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .check-item { display: flex; align-items: center; gap: 10px; padding: 6px 8px; margin: 0 -8px; cursor: pointer; border-radius: 4px; transition: background 0.15s; }
+  .check-item:hover { background: rgba(201,147,58,0.06); }
+  .check-item input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 1.5px solid rgba(201,147,58,0.5); border-radius: 3px; background: var(--plum-dark); cursor: pointer; flex-shrink: 0; position: relative; transition: all 0.15s; }
+  .check-item input[type="checkbox"]:checked { background: var(--gold); border-color: var(--gold); }
+  .check-item input[type="checkbox"]:checked::after { content: '✓'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #1a0800; font-size: 10px; font-weight: 700; }
+  .check-label { font-size: 13px; color: var(--white-65); line-height: 1.4; cursor: pointer; }
+  .check-item:has(input:checked) .check-label { color: var(--white); }
+
+  /* FIELDS */
+  .field-group { margin-bottom: 20px; }
+  .field-label { display: block; font-size: 12px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.05em; margin-bottom: 8px; }
+  .field-label .req { color: var(--gold); margin-left: 2px; }
+  textarea, input[type="text"] { width: 100%; background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 6px; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; padding: 12px 16px; resize: vertical; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  textarea:focus, input[type="text"]:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,147,58,0.12); }
+  textarea::placeholder, input::placeholder { color: rgba(255,255,255,0.25); }
+
+  /* MANUAL LIST */
+  .manual-list { display: flex; flex-direction: column; gap: 2px; }
+  .manual-item { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 14px 16px; background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 6px; transition: background 0.2s; }
+  .manual-item:hover { background: rgba(201,147,58,0.05); }
+  .manual-item.checked { background: rgba(201,147,58,0.08); border-color: rgba(201,147,58,0.4); }
+  .manual-task { font-size: 14px; color: var(--white-65); }
+  .manual-item.checked .manual-task { color: var(--white); }
+  .ai-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #1a0800; background: var(--gold); padding: 4px 10px; border-radius: 100px; white-space: nowrap; opacity: 0; transition: opacity 0.2s; }
+  .manual-item.checked .ai-badge { opacity: 1; }
+  .manual-item-inner { display: flex; align-items: center; gap: 12px; }
+
+  /* RADIO */
+  .radio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+  .radio-option { position: relative; cursor: pointer; }
+  .radio-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .radio-label { display: flex; align-items: center; justify-content: center; padding: 10px 14px; background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 6px; font-size: 13px; color: var(--white-65); text-align: center; cursor: pointer; transition: all 0.15s; line-height: 1.3; }
+  .radio-option input:checked + .radio-label { background: rgba(201,147,58,0.15); border-color: var(--gold); color: var(--white); }
+
+  /* DREAM CARD */
+  .dream-card { background: linear-gradient(135deg, rgba(201,147,58,0.08) 0%, rgba(13,6,8,0) 60%); border: 1px solid rgba(201,147,58,0.35); border-top: 3px solid var(--gold); border-radius: 6px; padding: 28px; }
+  .dream-prompt { font-family: 'DM Serif Display', serif; font-size: 16px; font-style: italic; color: var(--gold-light); margin-bottom: 10px; }
+
+  /* DIVIDER */
+  .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 32px auto; }
+
+  /* ACTIONS */
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--gold-line); }
+  .btn-primary { flex: 1; min-width: 200px; padding: 18px 32px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%); color: #1a0800; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; box-shadow: 0 8px 32px rgba(201,147,58,0.3); transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,147,58,0.45); }
+  .btn-secondary { padding: 18px 28px; background: transparent; color: var(--gold-light); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; border: 1px solid rgba(201,147,58,0.35); border-radius: 4px; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+  .btn-secondary:hover { background: rgba(201,147,58,0.08); border-color: var(--gold); }
+
+  /* RESULTS PAGE */
+  #resultsPage { display: none; }
+  #resultsPage.show { display: block; animation: fadeup 0.6s ease; }
+
+  .results-header { text-align: center; padding: 48px 24px 32px; background: linear-gradient(135deg, rgba(212,0,106,0.08), rgba(201,147,58,0.06)); border: 1px solid rgba(201,147,58,0.25); border-radius: 12px; margin-top: 40px; position: relative; overflow: hidden; }
+  .results-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--fuchsia), var(--gold)); }
+  .results-icon { font-size: 48px; margin-bottom: 12px; }
+  .results-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 36px); font-weight: 900; color: var(--white); margin-bottom: 8px; }
+  .results-header h2 span { color: var(--gold); font-style: italic; }
+  .results-header p { font-size: 15px; color: var(--white-65); line-height: 1.7; max-width: 500px; margin: 0 auto; }
+  .results-date { font-size: 11px; color: var(--white-40); margin-top: 12px; letter-spacing: 0.1em; }
+
+  /* SCORE COMPARISON */
+  .comparison-banner { display: none; background: rgba(95,216,138,0.07); border: 1px solid rgba(95,216,138,0.2); border-radius: 8px; padding: 16px 20px; margin: 20px 0; align-items: center; gap: 12px; }
+  .comparison-banner.show { display: flex; }
+  .comparison-icon { font-size: 24px; }
+  .comparison-text { font-size: 13px; color: var(--green); line-height: 1.6; }
+  .comparison-text strong { color: var(--white); }
+
+  /* SCORE STRIP */
+  .score-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+  @media(max-width:500px){ .score-strip { grid-template-columns: 1fr; } }
+  .score-card { background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 8px; padding: 20px 16px; text-align: center; }
+  .score-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .score-number.improved { color: var(--green); }
+  .score-number.delta { font-size: 14px; color: var(--green); margin-bottom: 4px; }
+  .score-label { font-size: 11px; color: var(--white-40); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* AI RESULTS */
+  .ai-results-section { background: var(--plum-card); border: 1px solid var(--gold-line); border-top: 3px solid var(--gold); border-radius: 8px; margin: 24px 0; overflow: hidden; }
+  .ai-results-header { padding: 18px 24px; background: rgba(201,147,58,0.06); border-bottom: 1px solid var(--gold-line); display: flex; align-items: center; gap: 10px; }
+  .ai-results-title { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .ai-spinner { width: 16px; height: 16px; border: 2px solid rgba(201,147,58,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ai-results-body { padding: 24px; }
+  .ai-results-text { font-size: 14px; line-height: 1.9; color: var(--white-65); }
+  .ai-results-text strong { color: var(--gold-light); display: block; margin: 16px 0 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .ai-results-text strong:first-child { margin-top: 0; }
+
+  /* MONTHLY RETAKE PROMPT */
+  .retake-prompt { background: rgba(45,10,62,0.8); border: 1px solid var(--gold-line); border-radius: 10px; padding: 20px 24px; margin: 16px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .retake-text { flex: 1; }
+  .retake-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .retake-desc { font-size: 13px; color: var(--white-65); line-height: 1.5; }
+  .retake-date { font-size: 12px; color: var(--gold-light); margin-top: 4px; font-style: italic; }
+  .btn-retake { padding: 10px 22px; background: transparent; color: var(--gold-light); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border: 1px solid rgba(201,147,58,0.4); border-radius: 4px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .btn-retake:hover { background: rgba(201,147,58,0.08); border-color: var(--gold); }
+
+  /* LOUNGE CTA */
+  .cta-block { background: linear-gradient(135deg, #3a1840 0%, #2a1030 100%); border: 1px solid rgba(212,0,106,0.3); border-top: 3px solid var(--fuchsia); border-radius: 12px; padding: 36px 32px; text-align: center; margin: 28px 0; position: relative; overflow: hidden; }
+  .cta-block::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(212,0,106,0.1) 0%, transparent 70%); pointer-events: none; }
+  .cta-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fuchsia-light); margin-bottom: 10px; }
+  .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 900; color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+  .cta-headline span { color: var(--gold); font-style: italic; }
+  .cta-body { font-size: 14px; color: var(--white-65); line-height: 1.7; max-width: 460px; margin: 0 auto 20px; }
+  .trial-badge { display: inline-block; background: rgba(201,147,58,0.15); border: 1px solid rgba(201,147,58,0.4); border-radius: 100px; padding: 6px 18px; font-size: 12px; font-weight: 600; color: var(--gold-light); margin-bottom: 20px; letter-spacing: 0.05em; }
+  .btn-lounge { display: inline-block; width: 100%; max-width: 380px; padding: 18px 32px; background: linear-gradient(135deg, var(--fuchsia), #8B0046); color: white; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; border-radius: 6px; box-shadow: 0 8px 32px rgba(212,0,106,0.35); transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.02em; }
+  .btn-lounge:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,0,106,0.5); }
+  .btn-lounge-sub { font-size: 12px; color: var(--white-40); margin-top: 10px; }
+
+  /* IG BLOCK */
+  .ig-block { display: flex; align-items: center; gap: 20px; background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 10px; padding: 20px 24px; margin: 16px 0; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  .ig-block:hover { border-color: rgba(212,0,106,0.5); background: rgba(212,0,106,0.05); }
+  .ig-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .ig-text { flex: 1; }
+  .ig-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-40); margin-bottom: 3px; }
+  .ig-handle { font-size: 15px; font-weight: 600; color: var(--white); }
+  .ig-desc { font-size: 12px; color: var(--white-40); margin-top: 2px; }
+  .ig-arrow { font-size: 20px; color: var(--gold); }
+
+  /* SAVE INDICATOR */
+  .save-indicator { position: fixed; bottom: 24px; right: 24px; background: var(--plum-card); border: 1px solid var(--gold-line); border-radius: 100px; padding: 10px 18px; font-size: 12px; font-weight: 600; color: var(--white-40); display: flex; align-items: center; gap: 8px; z-index: 100; transition: all 0.3s ease; opacity: 0; transform: translateY(8px); }
+  .save-indicator.saving { opacity: 1; transform: translateY(0); color: var(--gold-light); border-color: rgba(201,147,58,0.4); }
+  .save-indicator.saved { opacity: 1; transform: translateY(0); color: var(--green); border-color: rgba(95,216,138,0.3); }
+  .save-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* FOOTER */
+  .footer { margin: 60px -20px 0; background: #1d0d22; border-top: 1px solid var(--gold-line); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .footer-brand { font-size: 12px; font-weight: 700; color: var(--gold); }
+  .footer-copy { font-size: 11px; color: var(--white-40); }
+
+  @keyframes fadeup { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
   @media print {
     body::before { display: none; }
     body { background: white; color: #1a0a2e; }
     .header { background: #25102a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .actions { display: none; }
-    .progress-wrap { display: none; }
+    .actions, .progress-wrap, .save-indicator, .restore-banner, .last-audit-banner, #resultsPage { display: none !important; }
     .section { opacity: 1; transform: none; }
-    textarea, input { border: 1px solid #ccc !important; background: white !important; color: #333 !important; }
-    .bucket-card { border: 1px solid #ccc !important; background: #f9f6ff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .manual-item { border: 1px solid #ccc !important; background: white !important; }
   }
 </style>
 </head>
 <body>
-
 <div class="page">
 
-  <!-- ══ HEADER ══ -->
   <header class="header">
     <div class="header-top">
       <svg class="clock-icon" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="hglow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
+        <defs><filter id="hglow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
         <circle cx="26" cy="26" r="22" fill="none" stroke="#c9933a" stroke-width="2" filter="url(#hglow)" opacity="0.9"/>
         <circle cx="26" cy="26" r="3" fill="#c9933a" filter="url(#hglow)"/>
         <line x1="26" y1="26" x2="26" y2="10" stroke="#e8c07a" stroke-width="2.5" stroke-linecap="round" filter="url(#hglow)"/>
@@ -628,33 +251,36 @@
         <line x1="8" y1="26" x2="11" y2="26" stroke="#c9933a" stroke-width="2"/>
         <line x1="41" y1="26" x2="44" y2="26" stroke="#c9933a" stroke-width="2"/>
         <circle cx="38" cy="14" r="2.5" fill="#e8c07a" opacity="0.9" filter="url(#hglow)"/>
-        <circle cx="44" cy="20" r="1.5" fill="#c9933a" opacity="0.7"/>
-        <circle cx="46" cy="28" r="1" fill="#e8c07a" opacity="0.6"/>
       </svg>
       <div class="header-text">
-        <p class="header-eyebrow">Free Workshop Bonus · AI That Actually Gives You Your Time Back</p>
-        <h1 class="header-title">The AI <span>Time Audit</span></h1>
-        <p class="header-sub">Less mental load. More done. With AI.</p>
-        <p class="header-desc">Fill this out before April 21st — show up knowing exactly what we're fixing together. The more honest you are, the more time you walk away with.</p>
+        <p class="header-eyebrow">Time-Savvy Systems™ · AI Tool</p>
+        <h1 class="header-title">The <span>10-Hour Buyback</span> Audit™</h1>
+        <p class="header-sub">Find your hidden hours. Get them back. Keep them.</p>
+        <p class="header-desc">This audit shows you exactly where your time is leaking — and generates a personalized AI action plan to get those hours back. Run it monthly. Watch what changes.</p>
       </div>
     </div>
     <div class="header-brand">
       <span class="header-brand-name">Martha Brown · The Time-Savvy Mom™</span>
       <span class="header-brand-tag">timesavvysystems.com</span>
-      <span class="header-pill">📅 April 21st · 1pm CT</span>
+      <span class="header-pill">🔄 Run Monthly</span>
     </div>
   </header>
 
-  <!-- ══ RESTORE BANNER ══ -->
+  <!-- LAST AUDIT BANNER -->
+  <div class="last-audit-banner" id="lastAuditBanner">
+    <span class="last-audit-text" id="lastAuditText">📊 <strong>Welcome back.</strong> Your last audit found some hidden hours.</span>
+    <button class="last-audit-btn" onclick="viewLastResults()">View Last Results</button>
+  </div>
+
+  <!-- RESTORE BANNER -->
   <div class="restore-banner" id="restoreBanner">
-    <span class="restore-text">📋 <strong>You have saved answers</strong> from a previous session. Want to restore them?</span>
+    <span class="restore-text">📋 <strong>You have an audit in progress.</strong> Want to pick up where you left off?</span>
     <div class="restore-btns">
-      <button class="restore-btn yes" onclick="restoreAnswers()">Yes, restore</button>
+      <button class="restore-btn yes" onclick="restoreAnswers()">Yes, continue</button>
       <button class="restore-btn no" onclick="dismissRestore()">Start fresh</button>
     </div>
   </div>
 
-  <!-- ══ PROGRESS ══ -->
   <div class="progress-wrap">
     <span class="progress-label">Your progress</span>
     <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
@@ -663,55 +289,53 @@
 
   <div id="auditForm">
 
-    <!-- ══ SECTION 1 ══ -->
+    <!-- S1 -->
     <section class="section" id="s1">
       <div class="section-header">
         <div class="section-num">1</div>
         <div class="section-titles">
           <h2 class="section-title">Where Is Your Time Actually Going?</h2>
-          <p class="section-subtitle">Check everything that's stealing your hours. Be honest — nobody's watching.</p>
+          <p class="section-subtitle">Check everything stealing your hours right now. Be honest — nobody's watching.</p>
         </div>
       </div>
-
       <div class="buckets">
         <div class="bucket-card">
           <div class="bucket-title">💼 Business</div>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Writing content from scratch</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Emails that take forever</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Planning & strategy</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Admin & operations</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Client follow-ups</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Social media creation</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Writing content from scratch</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Emails that take forever</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Planning & strategy</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Admin & operations</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Client follow-ups</span></label>
+          <label class="check-item"><input type="checkbox" data-area="business" data-progress> <span class="check-label">Social media creation</span></label>
         </div>
         <div class="bucket-card">
           <div class="bucket-title">🏡 Home & Family</div>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Meal planning & groceries</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Kids' schedules & logistics</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Household task management</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Mental load planning</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Gift buying & events</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Appointments & errands</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Meal planning & groceries</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Kids' schedules & logistics</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Household task management</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Mental load planning</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Gift buying & events</span></label>
+          <label class="check-item"><input type="checkbox" data-area="home" data-progress> <span class="check-label">Appointments & errands</span></label>
         </div>
         <div class="bucket-card">
           <div class="bucket-title">🧠 You</div>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Health & fitness planning</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Personal goals gathering dust</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Mindset & overwhelm</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Decision fatigue</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Rest & recovery — what's that?</span></label>
-          <label class="check-item"><input type="checkbox" data-progress> <span class="check-label">Feeling behind constantly</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Health & fitness planning</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Personal goals gathering dust</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Mindset & overwhelm</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Decision fatigue</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Rest & recovery — what's that?</span></label>
+          <label class="check-item"><input type="checkbox" data-area="you" data-progress> <span class="check-label">Feeling behind constantly</span></label>
         </div>
       </div>
-
       <div class="field-group">
-        <label class="field-label">What is stealing the MOST time right now? Describe it. Be specific. <span class="required">*</span></label>
-        <textarea rows="3" placeholder="e.g. I spend 2 hours every Monday morning trying to plan my week and I still feel scattered by Tuesday..." data-progress></textarea>
+        <label class="field-label">What is stealing the MOST time right now? Be specific. <span class="req">*</span></label>
+        <textarea rows="3" id="biggestSteal" placeholder="e.g. I spend 2 hours every Monday morning trying to plan my week and still feel scattered by Tuesday..." data-progress></textarea>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ══ SECTION 2 ══ -->
+    <!-- S2 -->
     <section class="section" id="s2">
       <div class="section-header">
         <div class="section-num">2</div>
@@ -720,63 +344,20 @@
           <p class="section-subtitle">Check everything you're still doing by hand. Watch the badges light up.</p>
         </div>
       </div>
-
       <div class="manual-list">
-        <div class="manual-item" id="m1">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m1" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Writing emails, captions, or content from scratch every single time</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m2">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m2" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Researching, comparing, and organizing information</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m3">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m3" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Weekly planning — starting from scratch every single Monday</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m4">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m4" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Meal planning, grocery lists, and figuring out what's for dinner (again)</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m5">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m5" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Brainstorming ideas for offers, content, or business growth</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m6">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m6" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Keeping track of tasks, projects, and what's falling through the cracks</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
-        <div class="manual-item" id="m7">
-          <div class="manual-item-inner">
-            <input type="checkbox" data-manual="m7" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;">
-            <span class="manual-task">Figuring out what to say, how to say it, and who to say it to</span>
-          </div>
-          <span class="ai-badge">AI DOES THIS</span>
-        </div>
+        <div class="manual-item" id="m1"><div class="manual-item-inner"><input type="checkbox" data-manual="m1" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Writing emails, captions, or content from scratch every single time</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m2"><div class="manual-item-inner"><input type="checkbox" data-manual="m2" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Researching, comparing, and organizing information</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m3"><div class="manual-item-inner"><input type="checkbox" data-manual="m3" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Weekly planning — starting from scratch every single Monday</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m4"><div class="manual-item-inner"><input type="checkbox" data-manual="m4" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Meal planning, grocery lists, and figuring out what's for dinner (again)</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m5"><div class="manual-item-inner"><input type="checkbox" data-manual="m5" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Brainstorming ideas for offers, content, or business growth</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m6"><div class="manual-item-inner"><input type="checkbox" data-manual="m6" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Keeping track of tasks, projects, and what's falling through the cracks</span></div><span class="ai-badge">AI DOES THIS</span></div>
+        <div class="manual-item" id="m7"><div class="manual-item-inner"><input type="checkbox" data-manual="m7" data-progress style="appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1.5px solid rgba(201,147,58,0.5);border-radius:3px;background:var(--plum-dark);cursor:pointer;flex-shrink:0;position:relative;transition:all 0.15s;"><span class="manual-task">Figuring out what to say, how to say it, and who to say it to</span></div><span class="ai-badge">AI DOES THIS</span></div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ══ SECTION 3 ══ -->
+    <!-- S3 -->
     <section class="section" id="s3">
       <div class="section-header">
         <div class="section-num">3</div>
@@ -785,7 +366,6 @@
           <p class="section-subtitle">No judgment. Just honesty. This is where we figure out what's actually broken.</p>
         </div>
       </div>
-
       <div class="field-group">
         <label class="field-label">How often are you currently using AI?</label>
         <div class="radio-grid">
@@ -795,278 +375,340 @@
           <label class="radio-option"><input type="radio" name="ai_freq" value="daily" data-progress> <span class="radio-label">Daily — but I'm still not saving time</span></label>
         </div>
       </div>
-
       <div class="field-group">
-        <label class="field-label">When you do use AI, what happens? <span class="required">*</span></label>
-        <textarea rows="3" placeholder="Be real. Does it save time? Create more work? Leave you more confused than when you started?" data-progress></textarea>
+        <label class="field-label">When you do use AI, what happens? <span class="req">*</span></label>
+        <textarea rows="3" id="aiExperience" placeholder="Be real. Does it save time? Create more work? Leave you more confused than when you started?" data-progress></textarea>
       </div>
-
       <div class="field-group">
-        <label class="field-label">What have you tried with AI that felt like a total waste of time?</label>
-        <textarea rows="3" placeholder="The tools, the tutorials, the rabbit holes... what specifically hasn't worked?" data-progress></textarea>
-      </div>
-
-      <div class="field-group">
-        <label class="field-label">What do you WISH AI could just do for you? Dream big. <span class="required">*</span></label>
-        <textarea rows="3" placeholder="If AI could take one thing off your plate starting tomorrow, what would it be?" data-progress></textarea>
+        <label class="field-label">What do you wish AI would just handle for you? <span class="req">*</span></label>
+        <textarea rows="3" id="aiWish" placeholder="If AI could take one thing off your plate starting tomorrow, what would it be?" data-progress></textarea>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ══ SECTION 4 ══ -->
+    <!-- S4 -->
     <section class="section" id="s4">
       <div class="section-header">
         <div class="section-num">4</div>
         <div class="section-titles">
-          <h2 class="section-title">Your Workshop Intention</h2>
-          <p class="section-subtitle">What do you want to walk away with on April 21st? Lock it in now.</p>
+          <h2 class="section-title">Your Time-Back Goals</h2>
+          <p class="section-subtitle">Let's lock in what winning actually looks like for you — this month.</p>
         </div>
       </div>
-
-      <div class="intention-card">
+      <div class="dream-card">
         <div class="field-group">
-          <p class="intention-prompt">The #1 thing I want AI to stop me from doing manually:</p>
-          <textarea rows="2" placeholder="Be specific. The more specific, the more we can fix it live." data-progress></textarea>
+          <p class="dream-prompt">The #1 thing I want AI to handle for me:</p>
+          <textarea rows="2" id="topGoal" placeholder="Be specific. The more specific, the faster you'll get there." data-progress></textarea>
         </div>
-
         <div class="field-group">
-          <p class="intention-prompt">If I could get back 5 hours this week, I would use them for:</p>
-          <textarea rows="2" placeholder="Your goals. Your life. What actually matters to you." data-progress></textarea>
+          <p class="dream-prompt">If I got back 10 hours this week, I would use them for:</p>
+          <textarea rows="2" id="tenHours" placeholder="Your goals. Your life. What actually matters." data-progress></textarea>
         </div>
-
-        <div class="field-group">
-          <p class="intention-prompt">How I feel about AI right now in one word:</p>
-          <input type="text" placeholder="e.g. overwhelmed, curious, behind, hopeful, frustrated..." data-progress>
-        </div>
-
         <div class="field-group" style="margin-bottom:0;">
-          <p class="intention-prompt">My intention for the workshop — I am showing up to:</p>
-          <textarea rows="3" placeholder="Write it like you mean it. This is your commitment to yourself." data-progress></textarea>
+          <p class="dream-prompt">How I feel about AI right now in one word:</p>
+          <input type="text" id="aiFeeling" placeholder="e.g. overwhelmed, curious, behind, hopeful, excited..." data-progress>
         </div>
       </div>
     </section>
 
-    <!-- ══ ACTIONS ══ -->
     <div class="actions">
-      <button class="btn-primary" onclick="completeAudit()">I'm Ready for April 21st → Save My Audit</button>
-      <button class="btn-secondary" onclick="printToPDF()">🖨️ Save as PDF / Print</button>
+      <button class="btn-primary" onclick="generateResults()">Show Me My Results → Get My Time Back</button>
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </div>
+
+  <!-- RESULTS PAGE -->
+  <div id="resultsPage">
+
+    <div class="results-header">
+      <div class="results-icon">🔥</div>
+      <h2>Your hours are <span>found.</span></h2>
+      <p>Here's exactly what AI can take off your plate this month. Read it. Act on it. Come back next month and watch the number change.</p>
+      <p class="results-date" id="resultsDate"></p>
     </div>
 
+    <!-- COMPARISON BANNER (shows on retakes) -->
+    <div class="comparison-banner" id="comparisonBanner">
+      <div class="comparison-icon">📈</div>
+      <div class="comparison-text" id="comparisonText"></div>
+    </div>
+
+    <div class="score-strip" id="scoreStrip"></div>
+
+    <div class="ai-results-section">
+      <div class="ai-results-header">
+        <div class="ai-spinner" id="aiSpinner"></div>
+        <span class="ai-results-title" id="aiResultsTitle">Analyzing your audit...</span>
+      </div>
+      <div class="ai-results-body">
+        <div class="ai-results-text" id="aiResultsText">Generating your personalized time-back plan...</div>
+      </div>
+    </div>
+
+    <!-- MONTHLY RETAKE PROMPT -->
+    <div class="retake-prompt">
+      <div class="retake-text">
+        <div class="retake-label">🔄 Run This Monthly</div>
+        <div class="retake-desc">Your time leaks shift as your business grows. What's draining you in May won't be the same in August. Come back monthly and track your progress.</div>
+        <div class="retake-date" id="nextAuditDate"></div>
+      </div>
+      <button class="btn-retake" onclick="retakeAudit()">Retake the Audit</button>
+    </div>
+
+    <!-- LOUNGE CTA -->
+    <div class="cta-block">
+      <p class="cta-eyebrow">✦ Your Next Move ✦</p>
+      <h2 class="cta-headline">You just found your hours.<br>Now let's <span>build the systems</span> to keep them.</h2>
+      <p class="cta-body">The Time-Savvy Mom Lounge is where ambitious moms in business get the AI systems, tools, and community to buy back 10–25 hours every single week — without burning out or starting over every Monday morning.</p>
+      <div class="trial-badge">🎉 7-Day Trial — No credit card drama</div><br>
+      <a href="https://www.skool.com/the-time-savvy-mom-lounge/about" target="_blank" class="btn-lounge">Start My 7-Day Trial →</a>
+      <p class="btn-lounge-sub">Then just $77/month. Cancel anytime. No guilt.</p>
+    </div>
+
+    <a href="https://www.instagram.com/timesavvyaimom" target="_blank" class="ig-block">
+      <div class="ig-icon">📸</div>
+      <div class="ig-text">
+        <div class="ig-label">Daily AI tips for moms in business</div>
+        <div class="ig-handle">@timesavvyaimom</div>
+        <div class="ig-desc">Real systems. Real time back. No fluff.</div>
+      </div>
+      <div class="ig-arrow">→</div>
+    </a>
+
+    <div class="actions" style="justify-content:center; border-top: 1px solid var(--gold-line); margin-top: 28px;">
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print My Results</button>
+    </div>
   </div>
 
-  <!-- ══ COMPLETION ══ -->
-  <div class="completion" id="completionMsg">
-    <div class="completion-icon">🖤</div>
-    <h2>You're <span>ready.</span></h2>
-    <p>Your audit is saved. You just did more work than 90% of people who signed up. Show up April 21st and let's turn every single one of those answers into actual time back.</p>
-    <p class="completion-date">📅 Monday, April 21st · 1pm Central · Live on Zoom</p>
-    <br>
-    <p style="font-size:14px; color:rgba(255,255,255,0.5);">Don't forget — attend live and get the <strong style="color:#e8c07a;">Your AI OS for Real Life™</strong> bonus guide free. 🎁</p>
-    <br>
-    <button class="btn-secondary" onclick="printToPDF()" style="margin-top:8px;">🖨️ Print Your Completed Audit</button>
-  </div>
-
-  <!-- ══ FOOTER ══ -->
   <footer class="footer">
-    <span class="footer-brand">Time Savvy Systems™ · Martha Brown</span>
-    <span class="footer-copy">© 2025 · timesavvysystems.com · Free Workshop Bonus</span>
+    <span class="footer-brand">Time-Savvy Systems™ · Martha Brown</span>
+    <span class="footer-copy">© 2025 · timesavvysystems.com</span>
   </footer>
-
 </div>
 
-  <!-- ══ SAVE INDICATOR ══ -->
-  <div class="save-indicator" id="saveIndicator">
-    <div class="save-dot"></div>
-    <span id="saveText">Saving...</span>
-  </div>
+<div class="save-indicator" id="saveIndicator">
+  <div class="save-dot"></div>
+  <span id="saveText">Saving...</span>
+</div>
 
 <script>
-(function() {
-
-  var STORAGE_KEY = 'tsm-ai-time-audit-v1';
+(function(){
+  var DRAFT_KEY = 'tsm-buyback-draft-v2';
+  var HISTORY_KEY = 'tsm-buyback-history-v2';
   var saveTimer = null;
-  var indicator = document.getElementById('saveIndicator');
-  var saveText = document.getElementById('saveText');
+  var ind = document.getElementById('saveIndicator');
+  var stxt = document.getElementById('saveText');
 
-  // ── CHECK FOR SAVED DATA ON LOAD ──────────────────────────────────────
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
-  if (saved) {
-    try {
-      var data = JSON.parse(saved);
-      if (data && Object.keys(data).length > 0) {
-        document.getElementById('restoreBanner').classList.add('show');
-      }
-    } catch(e) {}
+  // ── LOAD HISTORY ──
+  function getHistory() { try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch(e){ return []; } }
+  function saveHistory(entry) {
+    var h = getHistory();
+    h.unshift(entry);
+    if(h.length > 12) h = h.slice(0,12); // keep 12 months
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); } catch(e){}
   }
 
-  // ── RESTORE ANSWERS ───────────────────────────────────────────────────
-  window.restoreAnswers = function() {
-    try {
-      var data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      if (!data) return;
+  // ── LAST AUDIT BANNER ──
+  var history = getHistory();
+  if(history.length > 0) {
+    var last = history[0];
+    var banner = document.getElementById('lastAuditBanner');
+    var d = new Date(last.date);
+    var dateStr = d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+    document.getElementById('lastAuditText').innerHTML = '📊 <strong>Welcome back.</strong> Last audit on '+dateStr+' — you found '+last.hours+' hidden hours.';
+    banner.classList.add('show');
+  }
 
-      // Restore textareas and text inputs
-      document.querySelectorAll('textarea, input[type="text"]').forEach(function(el, i) {
-        var key = el.placeholder ? el.placeholder.substring(0,30) : 'field_' + i;
-        if (data[key]) el.value = data[key];
-      });
-
-      // Restore checkboxes
-      document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
-        var key = 'cb_' + (cb.dataset.manual || cb.closest('label') && cb.closest('label').textContent.trim().substring(0,20) || Math.random());
-        if (data[key]) {
-          cb.checked = true;
-          if (cb.dataset.manual) {
-            var item = document.getElementById(cb.dataset.manual);
-            if (item) item.classList.add('checked');
-            cb.style.background = 'var(--gold)';
-            cb.style.borderColor = 'var(--gold)';
-          }
-        }
-      });
-
-      // Restore radio buttons
-      document.querySelectorAll('input[type="radio"]').forEach(function(r) {
-        var key = 'radio_' + r.name + '_' + r.value;
-        if (data[key]) r.checked = true;
-      });
-
-      document.getElementById('restoreBanner').classList.remove('show');
-      updateProgress();
-      showSaved('Answers restored');
-    } catch(e) {}
-  };
-
-  window.dismissRestore = function() {
-    localStorage.removeItem(STORAGE_KEY);
+  // ── VIEW LAST RESULTS ──
+  window.viewLastResults = function() {
+    var h = getHistory();
+    if(!h.length) return;
+    var last = h[0];
+    document.getElementById('lastAuditBanner').classList.remove('show');
     document.getElementById('restoreBanner').classList.remove('show');
+    showResults(last.hours, last.manual, last.total, last.aiText, last.date, null);
   };
 
-  // ── AUTO-SAVE ─────────────────────────────────────────────────────────
-  function autoSave() {
-    showSaving();
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(function() {
-      var data = {};
+  // ── RESTORE DRAFT ──
+  try {
+    var draft = localStorage.getItem(DRAFT_KEY);
+    if(draft && Object.keys(JSON.parse(draft)).length > 2) {
+      document.getElementById('restoreBanner').classList.add('show');
+    }
+  } catch(e){}
 
-      // Save textareas and text inputs
-      document.querySelectorAll('textarea, input[type="text"]').forEach(function(el, i) {
-        var key = el.placeholder ? el.placeholder.substring(0,30) : 'field_' + i;
-        data[key] = el.value;
+  window.restoreAnswers = function(){
+    try{
+      var d = JSON.parse(localStorage.getItem(DRAFT_KEY));
+      if(!d) return;
+      document.querySelectorAll('textarea, input[type="text"]').forEach(function(el,i){
+        var k = el.id||'f'+i; if(d[k]) el.value=d[k];
       });
-
-      // Save checkboxes
-      document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
-        var key = 'cb_' + (cb.dataset.manual || cb.closest('label') && cb.closest('label').textContent.trim().substring(0,20) || Math.random());
-        data[key] = cb.checked;
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(cb){
+        var k='cb_'+(cb.dataset.manual||cb.closest('label')?.textContent.trim().substring(0,20)||'x');
+        if(d[k]){cb.checked=true; if(cb.dataset.manual){var it=document.getElementById(cb.dataset.manual); if(it){it.classList.add('checked');cb.style.background='var(--gold)';cb.style.borderColor='var(--gold)';}}}
       });
+      document.querySelectorAll('input[type="radio"]').forEach(function(r){ if(d['r_'+r.name+'_'+r.value]) r.checked=true; });
+      document.getElementById('restoreBanner').classList.remove('show');
+      updateProgress(); showSaved('Progress restored');
+    }catch(e){}
+  };
 
-      // Save radio buttons
-      document.querySelectorAll('input[type="radio"]').forEach(function(r) {
-        var key = 'radio_' + r.name + '_' + r.value;
-        data[key] = r.checked;
-      });
+  window.dismissRestore = function(){ localStorage.removeItem(DRAFT_KEY); document.getElementById('restoreBanner').classList.remove('show'); };
 
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-        showSaved('Answers saved');
-      } catch(e) {
-        showSaved('Could not save');
-      }
-    }, 800);
+  function autoSave(){
+    showSaving(); clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      var d={};
+      document.querySelectorAll('textarea, input[type="text"]').forEach(function(el,i){ d[el.id||'f'+i]=el.value; });
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(cb){ d['cb_'+(cb.dataset.manual||cb.closest('label')?.textContent.trim().substring(0,20)||'x')]=cb.checked; });
+      document.querySelectorAll('input[type="radio"]').forEach(function(r){ d['r_'+r.name+'_'+r.value]=r.checked; });
+      try{ localStorage.setItem(DRAFT_KEY,JSON.stringify(d)); showSaved('Progress saved'); }catch(e){}
+    },800);
   }
 
-  function showSaving() {
-    indicator.className = 'save-indicator saving';
-    saveText.textContent = 'Saving...';
-  }
+  function showSaving(){ ind.className='save-indicator saving'; stxt.textContent='Saving...'; }
+  function showSaved(m){ ind.className='save-indicator saved'; stxt.textContent='✓ '+(m||'Saved'); setTimeout(function(){ ind.className='save-indicator'; },2500); }
 
-  function showSaved(msg) {
-    indicator.className = 'save-indicator saved';
-    saveText.textContent = '✓ ' + (msg || 'Saved');
-    setTimeout(function() {
-      indicator.className = 'save-indicator';
-    }, 2500);
-  }
+  // ── SCROLL REVEAL ──
+  var obs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }); },{threshold:0.1});
+  document.querySelectorAll('.section').forEach(function(s){ obs.observe(s); });
 
-  // ── SCROLL REVEAL ──────────────────────────────────────────────────────
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.section').forEach(function(s) {
-    observer.observe(s);
-  });
-
-  // ── MANUAL ITEM CHECKBOXES ─────────────────────────────────────────────
-  document.querySelectorAll('[data-manual]').forEach(function(cb) {
-    cb.addEventListener('change', function() {
-      var item = document.getElementById(this.dataset.manual);
-      if (this.checked) {
-        item.classList.add('checked');
-        this.style.background = 'var(--gold)';
-        this.style.borderColor = 'var(--gold)';
-      } else {
-        item.classList.remove('checked');
-        this.style.background = 'var(--plum-dark)';
-        this.style.borderColor = 'rgba(201,147,58,0.5)';
-      }
+  // ── MANUAL CHECKBOXES ──
+  document.querySelectorAll('[data-manual]').forEach(function(cb){
+    cb.addEventListener('change',function(){
+      var it=document.getElementById(this.dataset.manual);
+      if(this.checked){it.classList.add('checked');this.style.background='var(--gold)';this.style.borderColor='var(--gold)';}
+      else{it.classList.remove('checked');this.style.background='var(--plum-dark)';this.style.borderColor='rgba(201,147,58,0.5)';}
       updateProgress();
     });
   });
 
-  // ── PROGRESS TRACKING ─────────────────────────────────────────────────
-  var totalFields = document.querySelectorAll('[data-progress]').length;
-
-  function updateProgress() {
-    var filled = 0;
-    document.querySelectorAll('[data-progress]').forEach(function(el) {
-      if (el.type === 'checkbox' || el.type === 'radio') {
-        if (el.checked) filled++;
-      } else if (el.value && el.value.trim().length > 2) {
-        filled++;
-      }
-    });
-    var pct = Math.min(100, Math.round((filled / totalFields) * 100));
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressPct').textContent = pct + '%';
+  // ── PROGRESS ──
+  var total=document.querySelectorAll('[data-progress]').length;
+  function updateProgress(){
+    var f=0;
+    document.querySelectorAll('[data-progress]').forEach(function(el){ if(el.type==='checkbox'||el.type==='radio'){if(el.checked)f++;} else if(el.value&&el.value.trim().length>2)f++; });
+    var p=Math.min(100,Math.round((f/total)*100));
+    document.getElementById('progressFill').style.width=p+'%';
+    document.getElementById('progressPct').textContent=p+'%';
   }
-
-  document.querySelectorAll('[data-progress]').forEach(function(el) {
-    el.addEventListener('input', function() { updateProgress(); autoSave(); });
-    el.addEventListener('change', function() { updateProgress(); autoSave(); });
+  document.querySelectorAll('[data-progress]').forEach(function(el){
+    el.addEventListener('input',function(){updateProgress();autoSave();});
+    el.addEventListener('change',function(){updateProgress();autoSave();});
   });
 
-  // ── PRINT TO PDF ──────────────────────────────────────────────────────
-  window.printToPDF = function() {
-    // Add a note to print dialog
-    var title = document.title;
-    document.title = 'AI Time Audit — ' + new Date().toLocaleDateString();
-    window.print();
-    document.title = title;
+  // ── SHOW RESULTS ──
+  function showResults(hours, manual, totalChecked, aiText, dateStr, prevHours) {
+    var d = new Date(dateStr);
+    document.getElementById('resultsDate').textContent = 'Audit completed: ' + d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+
+    // Comparison banner
+    if(prevHours !== null && prevHours !== undefined) {
+      var diff = hours - prevHours;
+      var banner = document.getElementById('comparisonBanner');
+      var text = document.getElementById('comparisonText');
+      banner.classList.add('show');
+      if(diff < 0) {
+        text.innerHTML = '<strong>Progress! 🎉</strong> Last month you found '+prevHours+' hidden hours. This month: '+hours+'. You\'ve already taken back '+(prevHours - hours)+' hours. Keep going.';
+      } else if(diff > 0) {
+        text.innerHTML = '<strong>Heads up.</strong> You\'re finding '+diff+' more leaks than last month. That\'s not bad — it means your business is growing and your systems need an upgrade. That\'s exactly what we fix.';
+      } else {
+        text.innerHTML = '<strong>Consistent.</strong> Same score as last month. Time to push further — what\'s still manual that shouldn\'t be?';
+      }
+    }
+
+    // Score strip
+    document.getElementById('scoreStrip').innerHTML =
+      '<div class="score-card"><div class="score-number'+(prevHours && hours < prevHours ? ' improved' : '')+'">'+hours+'</div>'+(prevHours ? '<div class="score-number delta">'+(hours < prevHours ? '↓ '+(prevHours-hours)+' less than last month' : hours > prevHours ? '↑ '+(hours-prevHours)+' more than last month' : '= same as last month')+'</div>' : '')+'<div class="score-label">Hours hiding in your week</div></div>'+
+      '<div class="score-card"><div class="score-number">'+manual+'</div><div class="score-label">Manual tasks AI can own</div></div>'+
+      '<div class="score-card"><div class="score-number">'+totalChecked+'</div><div class="score-label">Areas bleeding your time</div></div>';
+
+    // Next audit date
+    var next = new Date(d);
+    next.setMonth(next.getMonth() + 1);
+    document.getElementById('nextAuditDate').textContent = '📅 Set a reminder to retake this on ' + next.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+
+    // Show page
+    document.getElementById('auditForm').style.display='none';
+    document.getElementById('resultsPage').classList.add('show');
+    document.getElementById('progressFill').style.width='100%';
+    document.getElementById('progressPct').textContent='100%';
+    window.scrollTo({top:0,behavior:'smooth'});
+
+    // If AI text already provided (viewing history)
+    if(aiText) {
+      document.getElementById('aiSpinner').style.display='none';
+      document.getElementById('aiResultsTitle').textContent='✦ Your Personalized Time-Back Plan';
+      document.getElementById('aiResultsText').innerHTML=aiText;
+      return;
+    }
+  }
+
+  // ── GENERATE RESULTS ──
+  window.generateResults = function(){
+    autoSave();
+    var bc=document.querySelectorAll('[data-area="business"]:checked').length;
+    var hc=document.querySelectorAll('[data-area="home"]:checked').length;
+    var yc=document.querySelectorAll('[data-area="you"]:checked').length;
+    var mc=document.querySelectorAll('[data-manual]:checked').length;
+    var hours=Math.max(4,Math.min(25,Math.round((bc*1.5)+(hc*0.8)+(yc*0.7)+(mc*1.2))));
+    var freq=(document.querySelector('input[name="ai_freq"]:checked')||{}).value||'unknown';
+    var areas=[];
+    if(bc>0)areas.push('Business ('+bc+' items)');
+    if(hc>0)areas.push('Home & Family ('+hc+' items)');
+    if(yc>0)areas.push('Personal ('+yc+' items)');
+    var mlabels=['Writing content from scratch','Research & organizing info','Weekly planning from scratch','Meal planning & groceries','Brainstorming ideas','Task & project tracking','Figuring out what to say'];
+    var tasks=[];
+    document.querySelectorAll('[data-manual]').forEach(function(cb,i){ if(cb.checked)tasks.push(mlabels[i]); });
+    var steal=document.getElementById('biggestSteal').value||'general overwhelm';
+    var wish=document.getElementById('aiWish').value||'automated workflows';
+    var ten=document.getElementById('tenHours').value||'things that matter';
+    var goal=document.getElementById('topGoal').value||'reduce manual work';
+
+    // Check previous score
+    var hist = getHistory();
+    var prevHours = hist.length > 0 ? hist[0].hours : null;
+    var now = new Date().toISOString();
+
+    showResults(hours, mc, bc+hc+yc, null, now, prevHours);
+
+    var prompt='You are Martha Brown from Time-Savvy Systems™. Direct, warm, sassy, zero fluff. A busy mom in business just completed the 10-Hour Buyback Audit.\n\nHer data:\n- Time leaking in: '+(areas.join(', ')||'multiple areas')+'\n- Still doing manually: '+(tasks.join(', ')||'several tasks')+'\n- Biggest time thief: '+steal+'\n- AI usage: '+freq+'\n- Wishes AI would: '+wish+'\n- Would use 10 hours for: '+ten+'\n- #1 goal: '+goal+(prevHours ? '\n- Last month she found '+prevHours+' hidden hours. This month: '+hours+'.' : '')+'\n\nWrite personalized results in 3 sections. Short punchy sentences. No bullet points.\n\n**What This Tells Me**\nSpot the pattern in her specific answers. Be bold and direct. 2-3 sentences.\n\n**Your Top 3 AI Wins This Month**\n3 specific things AI should handle for her first, based on her actual answers. One sentence per win. Specific not generic.\n\n**Your Move This Week**\nOne action to take TODAY. Two sentences max. End with momentum. Do not mention the Lounge.';
+
+    fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    })
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var text=(data.content||[]).map(function(b){return b.text||'';}).join('');
+      document.getElementById('aiSpinner').style.display='none';
+      document.getElementById('aiResultsTitle').textContent='✦ Your Personalized Time-Back Plan';
+      var html=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+      document.getElementById('aiResultsText').innerHTML=html;
+      // Save to history
+      saveHistory({ date: now, hours: hours, manual: mc, total: bc+hc+yc, aiText: html });
+      // Clear draft
+      try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+    })
+    .catch(function(){
+      document.getElementById('aiSpinner').style.display='none';
+      document.getElementById('aiResultsTitle').textContent='✦ Your Time-Back Results';
+      var fallback='<strong>What This Tells Me</strong><br><br>You\'re not bad at AI — your life just hasn\'t been set up to use it properly yet. That\'s a systems problem, not a you problem. Completely fixable.<br><br><strong>Your Top 3 AI Wins This Month</strong><br><br>First: your content creation is the fastest win — AI can write your captions, emails, and posts in minutes instead of hours. Second: weekly planning doesn\'t have to start from scratch every Monday — one template, built once, filled in by AI. Third: your mental load is real and AI can carry a significant chunk of it, starting with meal planning and scheduling.<br><br><strong>Your Move This Week</strong><br><br>Pick one task above and hand it to AI today — not next week, today. One win this week becomes a habit next month.';
+      document.getElementById('aiResultsText').innerHTML=fallback;
+      saveHistory({ date: now, hours: hours, manual: mc, total: bc+hc+yc, aiText: fallback });
+      try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+    });
   };
 
-  // ── COMPLETE AUDIT ─────────────────────────────────────────────────────
-  window.completeAudit = function() {
-    autoSave();
-    setTimeout(function() {
-      document.getElementById('auditForm').style.display = 'none';
-      document.getElementById('completionMsg').classList.add('show');
-      document.getElementById('progressFill').style.width = '100%';
-      document.getElementById('progressPct').textContent = '100%';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 600);
+  window.retakeAudit = function(){
+    try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+    window.location.reload();
   };
 
 })();
 </script>
-
 </body>
 </html>
