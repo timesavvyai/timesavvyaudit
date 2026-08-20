@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 10-Hour Buyback Audit™ — Time-Savvy Systems™</title>
+<meta name="description" content="Find the bottlenecks, manual work, decisions and systems stealing your time — then get your fastest path to buying it back.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --plum:#25102a;--plum-mid:#3d1832;--plum-dark:#1d0d22;--plum-card:#2a1230;
+    --gold:#c9933a;--gold-light:#e8c07a;--fuchsia:#D4006A;--fuchsia-light:#FF6BAE;
+    --green:#5FD88A;--white:#fff;--white65:rgba(255,255,255,.65);--white40:rgba(255,255,255,.4);
+    --line:rgba(201,147,58,.3);--fill:rgba(201,147,58,.08)
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--plum);color:var(--white);min-height:100vh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;background:
+    radial-gradient(circle at 15% 20%,rgba(212,0,106,.08),transparent 30%),
+    radial-gradient(circle at 85% 10%,rgba(201,147,58,.10),transparent 30%),
+    linear-gradient(135deg,rgba(255,255,255,.015),transparent 50%);z-index:0}
+  .page{position:relative;z-index:1;max-width:820px;margin:auto;padding:0 20px 64px}
+  .header{margin:0 -20px;padding:38px 40px 34px;background:linear-gradient(135deg,#3a1840,#2a1030);border-bottom:2px solid var(--gold)}
+  .eyebrow,.cta-eyebrow{font-size:10px;font-weight:700;letter-spacing:.23em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+  .header h1{font-family:'Playfair Display',serif;font-size:clamp(30px,6vw,48px);line-height:1.02;margin-bottom:10px}
+  .header h1 span{color:var(--gold);font-style:italic}
+  .header-sub{font-family:'DM Serif Display',serif;font-style:italic;color:var(--gold-light);font-size:clamp(16px,2vw,20px);margin-bottom:14px}
+  .header-desc{max-width:650px;color:var(--white65);line-height:1.7;font-size:14px}
+  .brandline{margin-top:18px;padding-top:14px;border-top:1px solid rgba(201,147,58,.2);font-size:12px;color:var(--white40)}
+  .brandline strong{color:var(--gold)}
+  .progress{position:sticky;top:0;z-index:20;margin:0 -20px;padding:10px 24px;background:rgba(29,13,34,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .track{height:5px;flex:1;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--fuchsia));transition:.3s}
+  .pct{font-size:11px;color:var(--gold);min-width:34px;text-align:right}
+  .section{margin-top:42px}
+  .section-head{display:flex;gap:14px;align-items:flex-start;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+  .num{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a0800;font-family:'Playfair Display',serif;font-weight:900}
+  .section h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3.2vw,27px);margin-bottom:4px}
+  .sub{font-size:13px;color:var(--gold-light);font-style:italic}
+  .callout{background:linear-gradient(135deg,rgba(212,0,106,.10),rgba(201,147,58,.07));border:1px solid var(--line);border-left:3px solid var(--fuchsia);border-radius:8px;padding:18px 20px;margin-bottom:22px;color:var(--white65);line-height:1.65;font-size:14px}
+  .callout strong{color:var(--white)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:650px){.grid3{grid-template-columns:1fr}.header{padding:30px 24px}}
+  .card{background:var(--plum-card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:8px;padding:16px}
+  .card-title{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+  .check{display:flex;gap:10px;align-items:flex-start;padding:7px 3px;cursor:pointer;color:var(--white65);font-size:13px;line-height:1.4}
+  input[type=checkbox]{appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:0 0 17px;border:1.5px solid rgba(201,147,58,.55);border-radius:3px;background:var(--plum-dark);margin-top:1px}
+  input[type=checkbox]:checked{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 3px var(--plum-dark)}
+  .field{margin-top:20px}
+  .label{display:block;color:var(--gold-light);font-size:12px;font-weight:700;letter-spacing:.03em;margin-bottom:8px}
+  textarea,input[type=text],select{width:100%;background:var(--plum-card);border:1px solid var(--line);border-radius:7px;color:var(--white);padding:13px 15px;font:14px 'DM Sans',sans-serif;outline:none}
+  textarea{resize:vertical;line-height:1.6}
+  textarea:focus,input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,147,58,.12)}
+  option{background:var(--plum-dark)}
+  .options{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+  .radio{position:relative}
+  .radio input{position:absolute;opacity:0}
+  .radio span{display:flex;height:100%;align-items:center;justify-content:center;text-align:center;background:var(--plum-card);border:1px solid var(--line);border-radius:7px;padding:11px 12px;color:var(--white65);font-size:13px;line-height:1.3;cursor:pointer}
+  .radio input:checked+span{border-color:var(--gold);background:rgba(201,147,58,.15);color:white}
+  .divider{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:34px auto}
+  .actions{margin-top:38px;padding-top:28px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap}
+  button,.book-btn{font-family:'DM Sans',sans-serif}
+  .primary{flex:1;min-width:250px;padding:18px 28px;border:0;border-radius:6px;background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--gold));color:#190800;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 10px 30px rgba(201,147,58,.25)}
+  .secondary{padding:18px 22px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--gold-light);font-weight:700;cursor:pointer}
+  #results{display:none}
+  #results.show{display:block}
+  .results-head{text-align:center;margin-top:40px;padding:42px 26px;background:linear-gradient(135deg,rgba(212,0,106,.09),rgba(201,147,58,.06));border:1px solid var(--line);border-radius:13px;border-top:3px solid var(--fuchsia)}
+  .results-head h2{font-family:'Playfair Display',serif;font-size:clamp(27px,5vw,40px);margin:8px 0}
+  .results-head h2 span{color:var(--gold);font-style:italic}
+  .results-head p{color:var(--white65);line-height:1.7}
+  .score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+  @media(max-width:600px){.score-grid{grid-template-columns:1fr}}
+  .score{background:var(--plum-card);border:1px solid var(--line);border-radius:9px;padding:20px;text-align:center}
+  .score .big{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--gold)}
+  .score .small{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--white40);margin-top:6px}
+  .result-card{margin:18px 0;background:var(--plum-card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .result-title{padding:16px 20px;background:rgba(201,147,58,.07);border-bottom:1px solid var(--line);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .result-body{padding:22px;color:var(--white65);line-height:1.75;font-size:14px}
+  .result-body strong{color:var(--white)}
+  .buyback{display:grid;gap:10px;margin-top:12px}
+  .move{padding:15px;border:1px solid rgba(201,147,58,.22);background:rgba(201,147,58,.05);border-radius:8px}
+  .move b{color:var(--gold-light);display:block;margin-bottom:5px}
+  .hell-yes{font-family:'DM Serif Display',serif;font-size:18px;color:var(--gold-light);font-style:italic}
+  .cta{margin:30px 0;background:linear-gradient(135deg,#3a1840,#2a1030);border:1px solid rgba(212,0,106,.35);border-top:3px solid var(--fuchsia);border-radius:13px;padding:34px 28px;text-align:center}
+  .cta h3{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,32px);margin:5px auto 12px;max-width:600px}
+  .cta h3 span{color:var(--gold);font-style:italic}
+  .cta p{color:var(--white65);max-width:590px;margin:0 auto 18px;line-height:1.7;font-size:14px}
+  .book-btn{display:inline-block;text-decoration:none;width:100%;max-width:430px;padding:18px 24px;background:linear-gradient(135deg,var(--fuchsia),#8b0046);color:#fff;border-radius:7px;font-size:16px;font-weight:800;box-shadow:0 10px 34px rgba(212,0,106,.28)}
+  .micro{font-size:11px!important;color:var(--white40)!important;margin-top:9px!important}
+  .footer{margin:58px -20px 0;padding:20px 30px;border-top:1px solid var(--line);background:var(--plum-dark);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--white40)}
+  .footer strong{color:var(--gold)}
+  .required-note{font-size:11px;color:var(--white40);margin-top:6px}
+  .error{display:none;color:#ff9abb;font-size:12px;margin-top:10px}
+  @media print{.progress,.actions,.cta,.footer{display:none!important}body{background:#fff;color:#222}.page{max-width:none}.result-card,.score{border-color:#ccc;color:#222}.result-body{color:#333}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="eyebrow">Time-Savvy Systems™ · Martha Brown</div>
+    <h1>The <span>10-Hour Buyback</span> Audit™</h1>
+    <div class="header-sub">Your Hell Yes Life needs somewhere to live. Let's make some room.</div>
+    <p class="header-desc">You don't need another productivity hack. You need to see what's still depending on you that doesn't actually require you. In a few minutes, we'll uncover your biggest time and capacity leaks, identify the fastest ways to buy that time back, and show you where a smarter system, delegation, automation, AI, or support could move you faster.</p>
+    <div class="brandline"><strong>Cut the Noise. Create Capacity. Live Your Hell Yes.</strong></div>
+  </header>
+
+  <div class="progress"><span style="font-size:11px;color:var(--white40)">Audit progress</span><div class="track"><div class="fill" id="fill"></div></div><span class="pct" id="pct">0%</span></div>
+
+  <div id="form">
+    <section class="section">
+      <div class="section-head"><div class="num">1</div><div><h2>Where is your time actually going?</h2><p class="sub">Not what's on the calendar. What's costing you time, energy, decisions and attention?</p></div></div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-title">💼 Business</div>
+          <label class="check"><input type="checkbox" data-area="business" value="content"><span>Content creation & marketing</span></label>
+          <label class="check"><input type="checkbox" data-area="business" value="sales"><span>Sales follow-up & lead management</span></label>
+          <label class="check"><input type="checkbox" data-area="business" value="admin"><span>Admin & operations</span></label>
+          <label class="check"><input type="checkbox" data-area="business" value="team"><span>Team questions, approvals & checking work</span></label>
+          <label class="check"><input type="checkbox" data-area="business" value="tech"><span>Tech, tools & figuring out how to make things work</span></label>
+          <label class="check"><input type="checkbox" data-area="business" value="projects"><span>Projects that keep stalling or circling back to me</span></label>
+        </div>
+        <div class="card">
+          <div class="card-title">🏡 Home + Family</div>
+          <label class="check"><input type="checkbox" data-area="home" value="meals"><span>Meals, groceries & food decisions</span></label>
+          <label class="check"><input type="checkbox" data-area="home" value="kids"><span>Kids' schedules & logistics</span></label>
+          <label class="check"><input type="checkbox" data-area="home" value="house"><span>Household tasks & keeping track of everything</span></label>
+          <label class="check"><input type="checkbox" data-area="home" value="mental"><span>Mental load nobody else seems to notice</span></label>
+          <label class="check"><input type="checkbox" data-area="home" value="appointments"><span>Appointments, errands & life admin</span></label>
+        </div>
+        <div class="card">
+          <div class="card-title">🧠 You</div>
+          <label class="check"><input type="checkbox" data-area="you" value="decisions"><span>Decision fatigue</span></label>
+          <label class="check"><input type="checkbox" data-area="you" value="focus"><span>Figuring out what deserves my focus</span></label>
+          <label class="check"><input type="checkbox" data-area="you" value="unfinished"><span>Starting things but not having capacity to finish</span></label>
+          <label class="check"><input type="checkbox" data-area="you" value="rest"><span>Rest, health or personal goals getting the leftovers</span></label>
+          <label class="check"><input type="checkbox" data-area="you" value="behind"><span>Feeling like I'm always catching up</span></label>
+        </div>
+      </div>
+
+      <div class="field"><label class="label">What is stealing the MOST time or brain space right now?</label><textarea id="biggestSteal" rows="3" placeholder="Be specific. What keeps showing up, slowing things down, or requiring you?"></textarea></div>
+      <div class="field"><label class="label">About how much time do you think THAT one thing costs you in a typical week?</label>
+        <select id="stealHours">
+          <option value="1">Less than 1 hour</option><option value="2">1–2 hours</option><option value="4">3–5 hours</option><option value="8">6–10 hours</option><option value="5">I honestly have no freaking idea</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-head"><div class="num">2</div><div><h2>What keeps depending on YOU?</h2><p class="sub">Just because it currently depends on you doesn't mean it actually requires you.</p></div></div>
+      <div class="callout"><strong>This is the bottleneck check.</strong> The goal isn't to make you faster at carrying everything. It's to figure out what should stop landing back on your desk in the first place.</div>
+      <div class="card">
+        <label class="check"><input type="checkbox" data-bottle value="recreate"><span>I recreate things I've already done before.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="decide"><span>I make the same kinds of decisions over and over.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="approval"><span>People are waiting on me for answers, approvals or next steps.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="manual"><span>I'm manually moving information, following up or keeping things updated.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="search"><span>I spend too much time searching, researching or figuring out HOW to do something.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="head"><span>Too much lives in my head instead of in a system.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="team"><span>I have help, but I'm still the person everyone needs before things can move.</span></label>
+        <label class="check"><input type="checkbox" data-bottle value="lowvalue"><span>I'm still doing work that doesn't need my level of skill or decision-making.</span></label>
+      </div>
+      <div class="field"><label class="label">If you could make ONE repeating annoyance disappear permanently, what would it be?</label><textarea id="magicDisappear" rows="3" placeholder="The thing that makes you think, why the hell am I still doing this?"></textarea></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-head"><div class="num">3</div><div><h2>Your capacity + team reality check</h2><p class="sub">We're looking for the gap between where you're going and the way things are currently running.</p></div></div>
+      <div class="field"><label class="label">Which feels most true right now?</label>
+        <div class="options">
+          <label class="radio"><input type="radio" name="needme" value="mostly"><span>Most of it genuinely needs me</span></label>
+          <label class="radio"><input type="radio" name="needme" value="some"><span>Some needs me, but way more could come off my plate</span></label>
+          <label class="radio"><input type="radio" name="needme" value="bottleneck"><span>I know I'm the bottleneck in more places than I want to admit 😬</span></label>
+          <label class="radio"><input type="radio" name="needme" value="unknown"><span>I honestly don't know what I should stop doing</span></label>
+        </div>
+      </div>
+      <div class="field"><label class="label">What does your support look like right now?</label>
+        <div class="options">
+          <label class="radio"><input type="radio" name="team" value="solo"><span>Mostly me</span></label>
+          <label class="radio"><input type="radio" name="team" value="freelancer"><span>VA / freelancer / contractor</span></label>
+          <label class="radio"><input type="radio" name="team" value="small"><span>1–2 team members</span></label>
+          <label class="radio"><input type="radio" name="team" value="larger"><span>3+ team members</span></label>
+          <label class="radio"><input type="radio" name="team" value="stillme"><span>I have help, but too much still lands on me</span></label>
+        </div>
+      </div>
+      <div class="field"><label class="label">If you have help, what do they currently handle?</label><textarea id="teamHandles" rows="2" placeholder="Who owns what right now?"></textarea></div>
+      <div class="field"><label class="label">What's your biggest business goal over the next 12 months?</label><textarea id="businessGoal" rows="3" placeholder="Revenue, growth, launch, team, capacity, lifestyle — where are you actually trying to go?"></textarea></div>
+      <div class="field"><label class="label">What's the biggest thing between HERE and THERE?</label><textarea id="gap" rows="3" placeholder="What feels stuck, too slow, too dependent on you, or harder than it should be?"></textarea></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-head"><div class="num">4</div><div><h2>Where can smart support buy back time?</h2><p class="sub">AI is one tool. Systems, delegation, automation and better ownership matter too.</p></div></div>
+      <div class="field"><label class="label">How are you currently using AI?</label>
+        <div class="options">
+          <label class="radio"><input type="radio" name="ai" value="never"><span>Rarely / not yet</span></label>
+          <label class="radio"><input type="radio" name="ai" value="sometimes"><span>Sometimes, when I remember</span></label>
+          <label class="radio"><input type="radio" name="ai" value="regular"><span>Regularly, but inconsistently</span></label>
+          <label class="radio"><input type="radio" name="ai" value="daily"><span>Daily, but I know I'm underusing it</span></label>
+          <label class="radio"><input type="radio" name="ai" value="advanced"><span>Pretty advanced already</span></label>
+        </div>
+      </div>
+      <div class="field"><label class="label">Where would you most love AI, automation or a better system to make life easier?</label><textarea id="supportWish" rows="3" placeholder="Content? sales? follow-up? operations? team communication? research? planning? home? something else?"></textarea></div>
+      <div class="field"><label class="label">What usually happens when you try to fix this yourself?</label>
+        <div class="options">
+          <label class="radio"><input type="radio" name="fix" value="research"><span>I lose hours researching</span></label>
+          <label class="radio"><input type="radio" name="fix" value="start"><span>I start, but it never gets fully implemented</span></label>
+          <label class="radio"><input type="radio" name="fix" value="workaround"><span>I create a workaround and keep limping along</span></label>
+          <label class="radio"><input type="radio" name="fix" value="teamwait"><span>I hand pieces off, but the team still waits on me</span></label>
+          <label class="radio"><input type="radio" name="fix" value="works"><span>I can execute it. I just need the right solution fast.</span></label>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-head"><div class="num">5</div><div><h2>What are you buying the time back FOR?</h2><p class="sub">Because the goal is not ten more hours to fill with ten more hours of work.</p></div></div>
+      <div class="callout"><strong>Your Hell Yes Life needs actual room.</strong> This is the part that matters. What gets to exist when everything doesn't require you anymore?</div>
+      <div class="field"><label class="label">If you got 10 hours back this week, what would you use them for?</label><textarea id="tenHours" rows="3" placeholder="Don't give me the productive answer. What do you actually want more room for?"></textarea></div>
+      <div class="field"><label class="label">What would change if your business could keep moving without everything running through you?</label><textarea id="freedom" rows="3" placeholder="More revenue? better work? creative time? family time? rest? travel? breathing room?"></textarea></div>
+      <div class="field"><label class="label">First name (optional, but your results look prettier with it)</label><input type="text" id="firstName" placeholder="Your name"></div>
+      <p class="required-note">Your answers stay in your browser unless you choose to book a call and share them with Martha.</p>
+    </section>
+
+    <div class="actions">
+      <button class="primary" id="generate">Show Me What Needs to Come Off My Plate →</button>
+      <button class="secondary" onclick="window.print()">🖨️ Print / Save</button>
+    </div>
+    <p class="error" id="error">Give me at least a few answers first so I can make this useful. 💜</p>
+  </div>
+
+  <div id="results">
+    <div class="results-head">
+      <div style="font-size:44px">🔥</div>
+      <h2><span id="resultName">Your</span> Time Buyback Plan</h2>
+      <p>You do not need to become more efficient at carrying everything. You need fewer things that require your attention in the first place.</p>
+    </div>
+
+    <div class="score-grid" id="scores"></div>
+
+    <div class="result-card">
+      <div class="result-title">🔥 What your answers are telling me</div>
+      <div class="result-body" id="diagnosis"></div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-title">⚡ Your 3 fastest time buybacks</div>
+      <div class="result-body"><div class="buyback" id="moves"></div></div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-title">💜 What you're buying this time back for</div>
+      <div class="result-body" id="hellYes"></div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-title">🚀 Your move this week</div>
+      <div class="result-body" id="oneMove"></div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-title">✦ Where Martha could help you move faster</div>
+      <div class="result-body" id="marthaHelp"></div>
+    </div>
+
+    <div class="cta">
+      <div class="cta-eyebrow">Your next move</div>
+      <h3>Don't add “fix all of this” to your <span>to-do list.</span></h3>
+      <p>Bring me your results. We'll look at where you're going, what's creating the bottleneck, and what would actually buy you the most time and capacity. Then I'll recommend a customized path based on YOUR business, YOUR team and YOUR goals. No cookie-cutter package shoved at everybody.</p>
+      <a class="book-btn" id="bookBtn" href="https://www.timesavvysystems.com/time-audit-call" target="_blank">Book My Time Buyback Call →</a>
+      <p class="micro">Have a new TidyCal link? Change BOOKING_URL once in the code and every booking button updates.</p>
+    </div>
+
+    <div class="actions" style="justify-content:center">
+      <button class="secondary" onclick="window.print()">🖨️ Print My Results</button>
+      <button class="secondary" id="retake">↻ Retake Audit</button>
+    </div>
+  </div>
+
+  <footer class="footer"><strong>Time-Savvy Systems™ · Martha Brown</strong><span>© 2026 · timesavvysystems.com</span></footer>
+</div>
+
+<script>
+(function(){
+  // 🔥 CHANGE ONLY THIS when your new TidyCal page is ready.
+  const BOOKING_URL = "https://www.timesavvysystems.com/time-audit-call";
+  document.getElementById("bookBtn").href = BOOKING_URL;
+
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const val = id => ($(id)?.value || "").trim();
+  const radio = name => ($(`input[name="${name}"]:checked`) || {}).value || "";
+  const checked = sel => $$(sel).filter(x => x.checked);
+  const textOfChecks = sel => checked(sel).map(x => x.parentElement.innerText.trim());
+
+  function updateProgress(){
+    const interactive = $$('input[type="checkbox"], input[type="radio"], textarea, input[type="text"]');
+    let answered = 0;
+    interactive.forEach(el=>{
+      if(el.type==="checkbox" || el.type==="radio"){ if(el.checked) answered++; }
+      else if(el.value.trim().length>2) answered++;
+    });
+    const pct = Math.min(100, Math.round(answered / Math.max(1, interactive.length * .34) * 100));
+    $("#fill").style.width = pct+"%";
+    $("#pct").textContent = pct+"%";
+  }
+  $$("input,textarea,select").forEach(el=>{el.addEventListener("input",updateProgress);el.addEventListener("change",updateProgress)});
+
+  function chooseMoves(data){
+    let moves = [];
+    const has = key => data.bottles.includes(key);
+    const business = data.business;
+
+    if(has("approval") || has("team") || data.team==="stillme" || data.needme==="bottleneck"){
+      moves.push({tag:"DELEGATE + SYSTEMIZE IT", body:"Move recurring approvals, questions and handoffs out of your head. Define what your team can decide without you, what truly needs your approval, and one place where status lives so people stop waiting on you."});
+    }
+    if(has("recreate") || has("head")){
+      moves.push({tag:"SYSTEMIZE IT", body:"Anything you keep recreating deserves a home. Turn the repeatable version into a template, SOP, checklist or workflow so the next round starts at 80%, not zero."});
+    }
+    if(has("manual")){
+      moves.push({tag:"AUTOMATE IT", body:"Look for one repeated handoff, update, reminder or follow-up you are still doing manually. If the trigger and next step are predictable, build the automation once and stop paying for it with your attention every week."});
+    }
+    if(has("search") || data.fix==="research"){
+      moves.push({tag:"AI IT", body:"Stop spending premium brainpower hunting through tabs. Use AI as your research-and-recommendation layer, then make one decision and document it so you are not researching the same category again next month."});
+    }
+    if(has("lowvalue")){
+      moves.push({tag:"DELEGATE IT", body:"Find the task that takes your time but not your unique judgment, relationships or voice. That is the first thing to document and hand off. Your highest-value work should not be fighting admin for calendar space."});
+    }
+    if(business.includes("Content creation & marketing")){
+      moves.push({tag:"SIMPLIFY + AI IT", body:"Build one content engine instead of creating every piece from scratch. One core idea becomes emails, posts, follow-up and sales content, with AI doing the first-pass production and you keeping the high-level voice and decisions."});
+    }
+    if(business.includes("Sales follow-up & lead management")){
+      moves.push({tag:"SYSTEMIZE IT", body:"Your follow-up should not depend on memory. Create a single lead pipeline with clear next actions, ownership and follow-up timing so opportunities keep moving even when you are serving clients."});
+    }
+    if(business.includes("Tech, tools & figuring out how to make things work")){
+      moves.push({tag:"STOP RESEARCHING IT", body:"The expensive part is not the software. It is the hours you lose comparing, testing and wiring it together. Choose the outcome first, then select the lightest tool that solves that outcome."});
+    }
+
+    const fallbacks = [
+      {tag:"SIMPLIFY IT", body:"Pick the process with the most steps and remove one step before you automate anything. Complexity is sneaky. Sometimes the fastest system is simply less system."},
+      {tag:"AI IT", body:"Give AI one recurring thinking task this week: research, first drafts, synthesis, planning or decision prep. Use it where it removes blank-page time, not where it creates more babysitting."},
+      {tag:"DELETE IT", body:"Find one recurring task, meeting or expectation that exists because it always has. Ask what breaks if it disappears. If the answer is 'not much,' congratulations. Delete it."}
+    ];
+    moves = [...moves, ...fallbacks];
+    const unique=[]; const seen=new Set();
+    for(const m of moves){ if(!seen.has(m.tag)){seen.add(m.tag);unique.push(m)} if(unique.length===3)break; }
+    return unique;
+  }
+
+  function diagnosis(data){
+    const bottleCount=data.bottles.length;
+    const teamish=["freelancer","small","larger","stillme"].includes(data.team);
+    if((data.needme==="bottleneck" || data.bottles.includes("approval") || data.bottles.includes("team")) && teamish){
+      return `<strong>This does not look like a time-management problem. It looks like an operational bottleneck.</strong><br><br>You have support, but too much still waits for your decision, answer, approval or brain. Your next level is not about doing more. It is about building enough ownership, systems and visibility that the business can keep moving while you stay in the work only you can do.`;
+    }
+    if(bottleCount>=5){
+      return `<strong>You are carrying too many repeat decisions and repeat tasks manually.</strong><br><br>The biggest win here is not finding one magical app. It is reducing the number of places where you are the default starting point. You need fewer loops returning to you.`;
+    }
+    if(data.fix==="research"){
+      return `<strong>Your biggest leak may be solution-hunting.</strong><br><br>You are capable of figuring things out, which is exactly why you keep doing it. But every hour spent researching the perfect tool or process is an hour you are not spending on the work that actually grows the business.`;
+    }
+    if(data.fix==="start" || data.fix==="workaround"){
+      return `<strong>You do not need more ideas. You need implementation that survives past the first burst of motivation.</strong><br><br>Your opportunity is turning the things you already know into a working system with clear ownership so you are not rebuilding or patching the same problem again.`;
+    }
+    return `<strong>You have more time-buyback opportunity than a prettier calendar can solve.</strong><br><br>Your answers point to repeat work, repeat decisions and things that currently depend on you simply because no better path has been built yet. That is fixable.`;
+  }
+
+  function marthaHelp(data){
+    const highBottleneck = data.needme==="bottleneck" || data.bottles.includes("approval") || data.bottles.includes("team") || data.team==="stillme";
+    const hasTeam=["freelancer","small","larger","stillme"].includes(data.team);
+    if(highBottleneck && hasTeam){
+      return `<strong>Your fastest path is probably not another course or another pile of information.</strong><br><br>You need someone to look across the business with you, find the blind spots, clarify ownership, identify the right systems/tools, and help get the pieces moving without everything routing back through you.<br><br>That is exactly where Martha's customized support is strongest: part strategist, part systems brain, part air-traffic controller. On a call, she'll look at your specific business, team, goals and bottlenecks and recommend what the right level of support could look like.`;
+    }
+    if(data.fix==="works" || data.fix==="research"){
+      return `<strong>You sound less like someone who needs motivation and more like someone who needs the right answer faster.</strong><br><br>Martha can help you diagnose the path of least resistance, choose the right tools/systems, and decide what should be automated, delegated, simplified or built. Then you can either run with it or talk about customized implementation support.`;
+    }
+    return `<strong>The next step is not automatically a package.</strong><br><br>The point of the call is to look at YOUR answers and customize the recommendation. You may need one focused fix, a strategic intensive, implementation help, or longer-term air-traffic-control support. Martha will help you figure out which actually makes sense instead of squeezing you into a cookie-cutter box.`;
+  }
+
+  $("#generate").addEventListener("click",()=>{
+    const data = {
+      business:textOfChecks('[data-area="business"]'),
+      home:textOfChecks('[data-area="home"]'),
+      you:textOfChecks('[data-area="you"]'),
+      bottles:checked('[data-bottle]').map(x=>x.value),
+      biggest:val("#biggestSteal"),
+      stealHours:Number($("#stealHours").value||2),
+      magic:val("#magicDisappear"),
+      needme:radio("needme"),
+      team:radio("team"),
+      teamHandles:val("#teamHandles"),
+      goal:val("#businessGoal"),
+      gap:val("#gap"),
+      ai:radio("ai"),
+      wish:val("#supportWish"),
+      fix:radio("fix"),
+      ten:val("#tenHours"),
+      freedom:val("#freedom"),
+      name:val("#firstName")
+    };
+
+    const meaningful = data.biggest || data.goal || data.ten || data.bottles.length || data.business.length;
+    if(!meaningful){$("#error").style.display="block";return}
+    $("#error").style.display="none";
+
+    const leakItems = data.business.length + data.home.length + data.you.length;
+    const bottleItems = data.bottles.length;
+    let hours = Math.round(data.stealHours + leakItems*.45 + bottleItems*.8);
+    if(data.needme==="bottleneck") hours += 2;
+    if(data.team==="stillme") hours += 2;
+    hours = Math.max(3, Math.min(25,hours));
+
+    const teamLabel = {solo:"Mostly solo",freelancer:"VA / contractor",small:"1–2 people",larger:"3+ people",stillme:"Help exists, but still routes to you"}[data.team] || "Not answered";
+    $("#scores").innerHTML = `
+      <div class="score"><div class="big">${hours}</div><div class="small">Estimated hours of weekly buyback opportunity</div></div>
+      <div class="score"><div class="big">${bottleItems}</div><div class="small">Bottleneck patterns showing up</div></div>
+      <div class="score"><div class="big" style="font-size:20px;line-height:1.3">${teamLabel}</div><div class="small">Current support reality</div></div>`;
+
+    $("#resultName").textContent = data.name ? data.name+"'s" : "Your";
+    $("#diagnosis").innerHTML = diagnosis(data);
+
+    const moves=chooseMoves(data);
+    $("#moves").innerHTML = moves.map(m=>`<div class="move"><b>${m.tag}</b>${m.body}</div>`).join("");
+
+    const ten = data.ten || "more of the work and life that actually matters to you";
+    const freedom = data.freedom ? `<br><br>You also said that if the business could move without everything running through you, you'd create room for <strong>${escapeHtml(data.freedom)}</strong>.` : "";
+    $("#hellYes").innerHTML = `<div class="hell-yes">You said you'd use those hours for: “${escapeHtml(ten)}.”</div>${freedom}<br><br><strong>That is the point.</strong> You are not trying to get better at stuffing more into your week. You are creating capacity for the business, people, experiences and parts of YOU that you actually want your life built around.`;
+
+    const first = moves[0];
+    $("#oneMove").innerHTML = `<strong>This week, start with ${first.tag.toLowerCase()}.</strong><br><br>${first.body}<br><br>Do not fix all twelve things. Create one piece of proof that your business or life can move without requiring more of you.`;
+
+    $("#marthaHelp").innerHTML = marthaHelp(data);
+    $("#form").style.display="none";
+    $("#results").classList.add("show");
+    $("#fill").style.width="100%";$("#pct").textContent="100%";
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  $("#retake").addEventListener("click",()=>location.reload());
+
+  function escapeHtml(str){
+    return String(str||"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+  }
+})();
+</script>
+</body>
+</html>
